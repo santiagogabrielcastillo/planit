@@ -1,5 +1,7 @@
 <div class="container-fluid container-devise">
-  <h2 class="text-center">PlanIT</h2>
+  <div class="logo-devise">
+    <%= image_tag 'plan-it-4.png' %>
+  </div>
   <p class="text-center">Registrate para contratar servicios</p>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
