@@ -5,7 +5,7 @@
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :description %>
-      <%= f.association :categories, collection: CATEGORIES, multiple: true %>
+      <%= f.association :categories, collection: Category.all.order(:name), multiple: true %>
       <%= f.input :schedule %>
       <%= f.input :delivery, collection: DELIVERY, include_blank: false %>
       <%= f.button :submit, class: "btn btn-primary" %>

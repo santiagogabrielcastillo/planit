@@ -5,6 +5,7 @@ class ProvidersController < ApplicationController
 
   def new
     @provider = Provider.new
+    @categories = Category.all
   end
 
   def create
@@ -19,6 +20,6 @@ class ProvidersController < ApplicationController
   private
 
   def provider_params
-    params.require(:provider).permit(:name, :description, :address, :schedule, :delivery, :categories)
+    params.require(:provider).permit(:name, :description, :address, :schedule, :delivery, category_ids: [])
   end
 end
