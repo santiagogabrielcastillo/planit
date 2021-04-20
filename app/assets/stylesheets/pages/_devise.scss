@@ -1,0 +1,33 @@
+@media only screen and (max-width: 540px) {
+  .container-devise {
+    padding: 2% 20%;
+  }
+}
+
+@media only screen and (min-width: 540px) {
+  .container-devise {
+    padding: 3% 30%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container-devise {
+    padding: 5% 40%;
+  }
+}
+
+.devise-form {
+  label {
+    font-weight: 600;
+  }
+}
+
+#terminos {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.logo-devise {
+  text-align: center;
+  padding: 20px;
+}
