@@ -1,0 +1,17 @@
+<% if current_user.admin = true %>
+  <div class="container-fluid container-padding">
+    <h3>Create a new provider</h3>
+    <%= simple_form_for @provider do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.association :categories, collection: CATEGORIES, multiple: true %>
+      <%= f.input :schedule %>
+      <%= f.input :delivery, collection: DELIVERY, include_blank: false %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% else %>
+  <p>You are not allowed to create providers!</p>
+  <%= link_to "Home", root_path %>
+<% end %>
