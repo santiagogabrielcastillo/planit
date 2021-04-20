@@ -1,22 +1,22 @@
 @media only screen and (max-width: 540px) {
   .container-devise {
-    padding: 0 20%;
+    padding: 2% 20%;
   }
 }
 
 @media only screen and (min-width: 540px) {
   .container-devise {
-    padding: 0 30%;
+    padding: 3% 30%;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .container-devise {
-    padding: 0 40%;
+    padding: 5% 40%;
   }
 }
 
-.sign-up-form {
+.devise-form {
   label {
     font-weight: 600;
   }
