@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_171745) do
+ActiveRecord::Schema.define(version: 2021_04_20_180048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 2021_04_20_171745) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories_providers", id: false, force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "provider_id"
+    t.index ["category_id"], name: "index_categories_providers_on_category_id"
+    t.index ["provider_id"], name: "index_categories_providers_on_provider_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -29,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_171745) do
     t.string "schedule"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
   end
 
   create_table "services", force: :cascade do |t|

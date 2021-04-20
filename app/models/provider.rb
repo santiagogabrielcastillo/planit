@@ -1,9 +1,4 @@
-CATEGORIES = ["Tutorial", "Pastelería", "Foodtrucks", "Barras de tragos", "Salones",
-              "Fotografía", "Bebidas", "Música", "Cotillón", "Animación", "Mozos", "Vajilla",
-              "Seguridad", "Mobiliario", "Catering"]
-
 class Provider < ApplicationRecord
   has_many :services
-
-  validates :category, inclusion: { in: CATEGORIES }
+  has_and_belongs_to_many :categories
 end
