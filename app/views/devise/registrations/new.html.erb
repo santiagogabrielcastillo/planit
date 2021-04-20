@@ -30,10 +30,10 @@
     <div class="form-actions">
       <%= f.button :submit, "Registrarme", class: "btn btn-primary w-100" %>
     </div>
-    <p class="text-center mt-4">Al registrarte aceptas los <a href="#">Términos y condiciones</a> y nuestra <a href="#">Política de privacidad</a></p>
+    <p id="terminos" class="text-center mt-4">Al registrarte aceptas los <a href="#">Términos y condiciones</a> y nuestra <a href="#">Política de privacidad</a></p>
   <% end %>
 
-  <div class="text-center">
+  <div class="text-center font-weight-bold">
     <%= render "devise/shared/links" %>
   </div>
 </div>

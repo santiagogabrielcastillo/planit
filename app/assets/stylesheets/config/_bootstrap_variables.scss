@@ -29,4 +29,9 @@ $link-color:                              $gray !default;
 $link-decoration:                         underline;
 
 $btn-border-radius:           4px;
-$btn-link-color:              $gray;
+
+.btn-primary {
+  font-weight: 600 !important;
+  color: $gray !important;
+}
+
