@@ -1,25 +1,41 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="container-fluid container-devise">
+  <div class="logo-devise">
+    <%= image_tag 'plan-it-4.png' %>
   </div>
+  <p class="text-center">Registrate para contratar servicios</p>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs devise-form">
+      <%= f.input :name,
+                  label: "Nombre",
+                  autofocus: true,
+                  required: false,
+                  input_html: { autocomplete: "name" }%>
+      <%= f.input :email,
+                  label: "Email",
+                  autofocus: true,
+                  required: false,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :phone,
+                  label: "Teléfono (opcional)",
+                  autofocus: true,
+                  input_html: { autocomplete: "phone" }%>
+      <%= f.input :password,
+                  required: false,
+                  label: "Contraseña",
+                  placeholder: "Mínimo 8 caracteres",
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Registrarme", class: "btn btn-primary w-100" %>
+    </div>
+    <p id="terminos" class="text-center mt-4">Al registrarte aceptas los <a href="#">Términos y condiciones</a> y nuestra <a href="#">Política de privacidad</a></p>
+  <% end %>
+
+  <div class="text-center font-weight-bold">
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
