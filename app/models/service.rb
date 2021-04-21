@@ -1,3 +1,3 @@
 class Service < ApplicationRecord
-  belongs_to :providers
+  belongs_to :provider
 end
