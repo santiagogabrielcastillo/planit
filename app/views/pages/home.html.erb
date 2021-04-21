@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-fluid container-padding">
+  <h4 class="mt-4">SERVICIOS</h4>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-4 col-md-2">
+        <%= link_to categories_path(category) do %>
+          <%= image_tag "#{category.name.downcase.gsub(" ", "-")}.png", class: "category-img" %>
+        <% end %>
+        <h6><%= category.name %></h6>
+      </div>
+    <% end %>
+  </div>
+</div>
