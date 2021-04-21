@@ -3,14 +3,16 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag 'logo-blanco', class: "navbar-logo" %>
     <% end %>
-    <% if current_user && current_user.admin = true && current_admin_user %>
+    <% if current_user && current_user.admin = true %>
       <%= link_to "Crear nuevo proveedor", new_provider_path %>
       <%= link_to 'Admin panel', admin_root_path %>
+      <%= link_to 'Log out',  destroy_user_session_path %>
     <% elsif current_user %>
       <div class="d-flex">
         <%= image_tag 'pedidos.png', input_html: {id: "pedidos-img"} %>
         <p id="mis-compras">Mis compras</p>
       </div>
+      <%= link_to "Log out", destroy_user_session_path %>
     <% else %>
       <%= link_to "Ingresar", new_user_session_path %>
     <% end %>
