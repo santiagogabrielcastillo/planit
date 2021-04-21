@@ -6,12 +6,13 @@
     <p><%= @provider.description %></p>
     <p><i class="fas fa-clock"></i> <%= @provider.schedule %></p>
     <p><i class="fas fa-truck"></i> <%= @provider.delivery %></p>
+
+    <% if current_user.admin = true %>
+      <%= link_to "Editar proveedor", edit_provider_path(@provider) %>
+    <% end %>
   </div>
 
-
-  <!--Acá van a ir los servicios de cada proveedor-->
-
-  <div class="row">
+  <div class="row mt-5">
     <% @provider.services.each do |service| %>
       <div class="col-12 col-md-6">
         <div class="provider-service">
