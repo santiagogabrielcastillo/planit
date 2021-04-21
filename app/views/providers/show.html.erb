@@ -10,4 +10,16 @@
 
 
   <!--Acá van a ir los servicios de cada proveedor-->
+
+  <div class="row">
+    <% @provider.services.each do |service| %>
+      <div class="col-12 col-md-6">
+        <div class="container-fluid">
+          <h3><%= service.name %></h3>
+          <p><%= service.description %></p>
+          <p><%= service.cost %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
