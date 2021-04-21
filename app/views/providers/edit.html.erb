@@ -1,0 +1,17 @@
+<% if current_user.admin = true %>
+  <div class="container-fluid container-padding">
+    <h3>Editar proveedor</h3>
+    <%= simple_form_for @provider do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.association :categories, collection: Category.all.order(:name), multiple: true %>
+      <%= f.input :schedule %>
+      <%= f.input :delivery, collection: DELIVERY, include_blank: false %>
+      <%= f.submit 'Editar', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% else %>
+  <p>No tenés permitido editar proveedores!</p>
+  <%= link_to "Home", root_path %>
+<% end %>

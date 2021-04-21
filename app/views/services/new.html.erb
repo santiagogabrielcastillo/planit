@@ -1,0 +1,15 @@
+<% if current_user.admin = true %>
+  <div class="container-fluid container-padding">
+    <h1><%= @provider.name %></h1>
+    <h3>Create a new service</h3>
+    <%= simple_form_for [@provider, @service] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :cost %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% else %>
+  <p>You are not allowed to create services!</p>
+  <%= link_to "Home", root_path %>
+<% end %>
