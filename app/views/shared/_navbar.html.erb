@@ -3,7 +3,9 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag 'logo-blanco', class: "navbar-logo" %>
     <% end %>
-    <% if current_user %>
+    <% if current_user && current_user.admin = true %>
+      <%= link_to "Crear nuevo proveedor", new_provider_path %>
+    <% elsif current_user %>
       <div class="d-flex">
         <%= image_tag 'pedidos.png', input_html: {id: "pedidos-img"} %>
         <p id="mis-compras">Mis compras</p>
