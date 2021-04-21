@@ -1,3 +1,18 @@
 .navbar {
   background: linear-gradient(8deg, rgba(83,88,187,1) 0%, rgba(19,171,175,1) 100%);
+
+  a {
+    color: white;
+  }
+}
+
+.navbar-logo {
+  width: 15vw;
+}
+
+#mis-compras {
+  font-size: 18px;
+  color: white;
+  margin: 0;
+  padding-left: 10px;
 }

@@ -1,8 +1,15 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid d-flex justify-content-between">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
-    </a>
-    <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag 'logo-blanco', class: "navbar-logo" %>
+    <% end %>
+    <% if current_user %>
+      <div class="d-flex">
+        <%= image_tag 'pedidos.png', input_html: {id: "pedidos-img"} %>
+        <p id="mis-compras">Mis compras</p>
+      </div>
+    <% else %>
+      <%= link_to "Ingresar", new_user_session_path %>
+    <% end %>
   </div>
 </nav>
