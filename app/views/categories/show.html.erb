@@ -1,0 +1,14 @@
+<div class="container-fluid container-padding">
+  <h3><%= @category.name %></h3>
+  <div class="row">
+    <% @category.providers.each do |provider| %>
+      <div class="col-12">
+        <h1 class="mb-0"><%= provider.name %></h1>
+        <p><%= provider.address %></p>
+        <p><%= provider.description %></p>
+        <p><i class="fas fa-clock"></i> <%= provider.schedule %></p>
+        <p><i class="fas fa-truck"></i> <%= provider.delivery %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

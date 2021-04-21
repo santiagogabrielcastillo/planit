@@ -3,7 +3,7 @@
   <div class="row">
     <% @categories.each do |category| %>
       <div class="col-4 col-md-2">
-        <%= link_to categories_path(category) do %>
+        <%= link_to category_path(category) do %>
           <%= image_tag "#{category.name.downcase.gsub(" ", "-")}.png", class: "category-img" %>
         <% end %>
         <h6><%= category.name %></h6>

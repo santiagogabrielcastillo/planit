@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :providers do
     resources :services, only: %i[new create show]
   end
+
+  resources :categories, only: %i[show]
 end
