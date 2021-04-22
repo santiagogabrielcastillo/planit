@@ -11,6 +11,10 @@
   }
 }
 
+.navbar-collapse {
+  flex-grow: 0;
+}
+
 .navbar-logo {
   width: 15vw;
 }
