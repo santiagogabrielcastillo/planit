@@ -17,6 +17,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @order = Order.new
   end
 
   private
