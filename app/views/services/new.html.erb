@@ -1,15 +1,20 @@
-<% if current_user.admin = true %>
-  <div class="container-fluid container-padding">
-    <h1><%= @provider.name %></h1>
-    <h3>Create a new service</h3>
-    <%= simple_form_for [@provider, @service] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :cost %>
-      <%= f.button :submit, class: "btn btn-primary" %>
+<div class="container-fluid container-padding">
+  <div class="bg-white px-3 py-3">
+    <% if current_user.admin = true %>
+      <h1>Proveedor: <%= @provider.name %></h1>
+      <h3>Crear nuevo servicio</h3>
+      <%= simple_form_for [@provider, @service] do |f| %>
+        <%= f.input :name, label: "Nombre" %>
+        <%= f.input :description, label: "Descripción" %>
+        <%= f.input :cost, label: "Costo" %>
+        <%= f.submit 'Crear servicio', class: "btn btn-primary my-4" %>
+        <div>
+          <%= link_to 'Volver al proveedor', provider_path(@provider) %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No tenés permitido crear nuevos servicios!</p>
+      <%= link_to "Home", root_path %>
     <% end %>
   </div>
-<% else %>
-  <p>You are not allowed to create services!</p>
-  <%= link_to "Home", root_path %>
-<% end %>
+</div>

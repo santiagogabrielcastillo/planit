@@ -9,6 +9,14 @@
   i {
     color: $primary;
   }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+  }
 }
 
 .provider-service {

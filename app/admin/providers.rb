@@ -16,6 +16,7 @@ ActiveAdmin.register Provider do
 
   show do
     attributes_table do
+      row :id
       row :name
       row :address
       row :description
@@ -24,6 +25,11 @@ ActiveAdmin.register Provider do
       table_for provider.categories.order('name ASC') do
         column "Categories" do |category|
           link_to category.name, [ :admin, category ]
+        end
+      end
+      table_for provider.services.order('name ASC') do
+        column 'Services' do |service|
+          link_to service.name, [:admin, service]
         end
       end
     end
