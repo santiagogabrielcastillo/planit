@@ -1,12 +1,12 @@
 .navbar {
   background: linear-gradient(8deg, rgba(83,88,187,1) 0%, rgba(19,171,175,1) 100%);
 
-  a {
-    color: white;
+  .nav-link {
+    color: white !important;
     text-decoration: none;
 
     &:hover {
-      color: black;
+      color: black !important;
     }
   }
 }
@@ -15,7 +15,7 @@
   width: 15vw;
 }
 
-#mis-compras {
+#purchases {
   font-size: 18px;
   color: white;
   margin: 0;
