@@ -113,6 +113,8 @@ GEM
     ffi (1.15.0)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
+    formadmin (0.2.1)
+      activeadmin
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
     formtastic_i18n (0.6.0)
@@ -293,6 +295,7 @@ DEPENDENCIES
   dotenv-rails
   faker!
   font-awesome-sass
+  formadmin
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
