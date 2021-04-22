@@ -11,7 +11,7 @@
       <hr>
       <p class="font-weight-bold">INVITADOS</p>
       <%= simple_form_for @order do |f| %>
-        <%= f.input :guests, label: "Invitados", as: :text, input_html: { id: "guests-input", value: "0" } %>
+        <%= f.input :guests, label: "Invitados", as: :string, input_html: { id: "guests-input", value: "0" } %>
         <button id="less-btn">-</button>
         <button id="add-btn">+</button>
         <%= f.submit 'Comprar', class: "btn btn-primary" %>
