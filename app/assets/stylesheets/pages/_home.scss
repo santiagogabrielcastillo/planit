@@ -1,4 +1,11 @@
-// Specific CSS for your home-page
+.category {
+  margin: auto 0;
+  display: inline-block;
+
+  h6 {
+    font-size: 15px;
+  }
+}
 
 .category-img {
   width: 60px;
