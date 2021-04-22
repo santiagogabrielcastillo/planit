@@ -27,7 +27,9 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { changeGuests } from '../components/init_guests_input';
+import { changeTotalPrice } from '../components/init_order_price';
 
 document.addEventListener('turbolinks:load', () => {
   changeGuests();
+  changeTotalPrice();
 });

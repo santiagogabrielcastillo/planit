@@ -11,9 +11,14 @@
       <hr>
       <p class="font-weight-bold">INVITADOS</p>
       <%= simple_form_for @order do |f| %>
-        <%= f.input :guests, label: "Invitados", as: :string, input_html: { id: "guests-input", value: "0" } %>
-        <button id="less-btn">-</button>
-        <button id="add-btn">+</button>
+        <div class="d-flex align-items-end mb-3">
+          <%= f.input :guests, label: "Invitados", as: :string, input_html: { id: "guests-input", value: "0" } %>
+          <button id="less-btn">-</button>
+          <button id="add-btn">+</button>
+        </div>
+        <div class="d-flex justify-content-between">
+          <h5>TOTAL:</h5><span id="total-price"></span>
+        </div>
         <%= f.submit 'Comprar', class: "btn btn-primary" %>
       <% end %>
     </div>

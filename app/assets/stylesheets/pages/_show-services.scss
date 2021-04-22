@@ -14,10 +14,33 @@
     text-decoration: none;
   }
 
-  input {
+  #guests-input {
     text-align: center;
     width: 80px;
     height: 35px;
     font-size: 20px;
+  }
+
+  #less-btn {
+    height: 35px;
+    background-color: white;
+    border: 1px solid #ced4da;
+    margin-left: 10px;
+    margin-right: 0;
+    width: 39px;
+    border-radius: 3px 0 0 3px;
+  }
+
+  #add-btn {
+    height: 35px;
+    background-color: white;
+    border: 1px solid #ced4da;
+    margin-left: 0;
+    width: 39px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .form-group {
+    margin-bottom: 0 !important;
   }
 }
