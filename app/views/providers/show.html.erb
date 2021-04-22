@@ -22,16 +22,14 @@
     <% end %>
   </div>
 
-    <div class="row mt-5">
-      <% @provider.services.each do |service| %>
-        <div class="col-12 col-md-6">
-          <div class="provider-service">
-            <div>
-              <h4 class="font-weight-bold"><%= service.name %></h4>
-              <p><%= service.description %></p>
-              <span id="provider-service-cost">$<%= service.cost %></span> <span>x invitado</span>
-            </div>
-            <%= image_tag 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' %>
+  <div class="row mt-5">
+    <% @provider.services.each do |service| %>
+      <div class="col-12 col-md-6">
+        <div class="provider-service">
+          <div class="w-75">
+            <h4 class="font-weight-bold"><%= service.name %></h4>
+            <p><%= service.description %></p>
+            <span id="provider-service-cost">$<%= service.cost %></span> <span>x invitado</span>
           </div>
         </div>
       <% end %>
