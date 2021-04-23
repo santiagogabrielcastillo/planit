@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_service, only: %I[create]
-  before_action :set_order, only: %I[edit]
+  before_action :set_order, only: %I[edit update confirm paid]
 
   def create
     @order = Order.new(order_params)
@@ -15,6 +15,22 @@ class OrdersController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @order.update(order_params)
+      redirect_to confirm_order_path(@order)
+    else
+      render :edit
+    end
+  end
+
+  def confirm
+  end
+
+  def paid
+    @order.paid = true
+    @order.save
   end
 
   private

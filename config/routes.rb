@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'orders/:id/confirm', to: "orders#confirm", as: "confirm_order"
+  patch 'orders/:id/paid', to: "orders#paid", as: "paid_order"
 
   resources :providers, only: %I[show new create edit update]
 
