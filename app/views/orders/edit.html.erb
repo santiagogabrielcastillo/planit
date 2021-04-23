@@ -12,7 +12,7 @@
         <%= f.input :address, label: "Dirección de entrega", disabled: true %>
         <%= f.input :apartment, label: "Apartamento (opcional)", disabled: true %>
       <% end %>
-      <%= f.input :date, label: "Fecha de entrega" %>
+      <%= f.input :date, label: "Fecha de entrega", as: :string, input_html: {class: "datepicker"}, placeholder: "DD/ MM/ AA" %>
       <p class="font-weight-bold">Horario</p>
       <div class="d-flex">
         <%= f.input :from, label: false %>
