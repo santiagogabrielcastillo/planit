@@ -7,7 +7,6 @@
       <%= f.input :description %>
       <%= f.association :categories, collection: Category.all.order(:name), multiple: true %>
       <%= f.input :schedule %>
-      <%= f.input :delivery, collection: DELIVERY, include_blank: false %>
       <%= f.submit 'Editar', class: "btn btn-primary" %>
     <% end %>
   </div>

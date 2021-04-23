@@ -2,16 +2,14 @@
   <div class="container-order bg-white">
     <%= simple_form_for @order do |f| %>
       <p class="font-weight-bold">Tipo de entrega</p>
-      <% if @order.service.provider.delivery == "Entrega a domicilio" %>
-        <div class="container-address">
-          <i class="fas fa-map-marker-alt"></i>
-          <%= f.input :address, label: "Dirección de entrega" %>
-        </div>
-        <%= f.input :apartment, label: "Apartamento (opcional)" %>
-      <% elsif @order.service.provider.delivery == "Retiro en el local" %>
-        <%= f.input :address, label: "Dirección de entrega", disabled: true %>
-        <%= f.input :apartment, label: "Apartamento (opcional)", disabled: true %>
-      <% end %>
+      <%= f.input :delivery, as: :check_boxes, collection: DELIVERY %>
+      <div class="container-address">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= f.input :address, label: "Dirección de entrega" %>
+      </div>
+      <%= f.input :apartment, label: "Apartamento (opcional)" %>
+      <%= f.input :address, label: "Dirección de entrega", disabled: true %>
+      <%= f.input :apartment, label: "Apartamento (opcional)", disabled: true %>
       <div class="container-date">
         <i class="fas fa-calendar-alt"></i>
         <%= f.input :date, label: "Fecha de entrega", as: :string, input_html: {class: "datepicker"}, placeholder: "DD/ MM/ AA" %>
