@@ -1,0 +1,26 @@
+<div class="container-fluid container-padding">
+  <div class="container-order bg-white">
+    <%= simple_form_for @order do |f| %>
+      <p class="font-weight-bold">Tipo de entrega</p>
+      <% if @order.service.provider.delivery == "Entrega a domicilio" %>
+        <div class="container-icon">
+          <i class="fas fa-map-marker-alt"></i>
+          <%= f.input :address, label: "Dirección de entrega" %>
+        </div>
+        <%= f.input :apartment, label: "Apartamento (opcional)" %>
+      <% elsif @order.service.provider.delivery == "Retiro en el local" %>
+        <%= f.input :address, label: "Dirección de entrega", disabled: true %>
+        <%= f.input :apartment, label: "Apartamento (opcional)", disabled: true %>
+      <% end %>
+      <%= f.input :date, label: "Fecha de entrega" %>
+      <p class="font-weight-bold">Horario</p>
+      <div class="d-flex">
+        <%= f.input :from, label: false %>
+        <span>hasta</span>
+        <%= f.input :to, label: false %>
+      </div>
+      <%= f.input :comments, label: "Comentarios" %>
+      <%= f.submit 'Continuar', class: "btn btn-primary px-5 text-dark" %>
+    <% end %>
+  </div>
+</div>

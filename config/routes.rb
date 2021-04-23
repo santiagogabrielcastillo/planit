@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :services, only: %i[new create show]
   end
 
-  resources :orders, only: %i[new create edit update show]
+  resources :orders, only: %i[create edit update show]
 end

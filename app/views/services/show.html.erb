@@ -12,6 +12,7 @@
       <p class="font-weight-bold">INVITADOS</p>
       <%= simple_form_for @order do |f| %>
         <div class="d-flex align-items-end mb-3">
+          <%= f.input :service_id, as: :hidden, input_html: { value: "#{@service.id}" } %>
           <%= f.input :guests, label: "Invitados", as: :string, input_html: { id: "guests-input", value: "0" } %>
           <button id="less-btn">-</button>
           <button id="add-btn">+</button>
