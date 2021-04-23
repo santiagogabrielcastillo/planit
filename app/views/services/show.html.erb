@@ -7,7 +7,7 @@
       <% end %>
       <h3><%= @service.name %></h3>
       <p><%= @service.description %></p>
-      <span id="provider-service-cost">$<%= @service.cost %></span> <span>x invitado</span>
+      <span id="provider-service-cost" class="text-dark">$<%= @service.cost %></span> <span>x invitado</span>
       <hr>
       <p class="font-weight-bold">INVITADOS</p>
       <%= simple_form_for @order do |f| %>
@@ -16,10 +16,15 @@
           <button id="less-btn">-</button>
           <button id="add-btn">+</button>
         </div>
-        <div class="d-flex justify-content-between">
-          <h5>TOTAL:</h5><span id="total-price"></span>
+        <div class="row mt-5">
+          <div class="col-12 col-md-4 d-flex justify-content-between align-items-center">
+            <p class="font-weight-bold mb-0 text-dark">Total:</p><span class="text-dark" id="total-price"></span>
+          </div>
         </div>
-        <%= f.submit 'Comprar', class: "btn btn-primary" %>
+        <div class="d-flex pb-5 mt-3">
+          <a href="#" class="shadow rounded px-4 py-2 mr-3 text-dark"><i class="fas fa-plus-circle"></i> Agregar a la lista</a>
+          <%= f.submit 'Comprar', class: "btn btn-primary text-dark px-5 py-2" %>
+        </div>
       <% end %>
     </div>
   </div>

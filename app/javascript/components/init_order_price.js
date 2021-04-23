@@ -5,6 +5,11 @@ const addButton = document.getElementById("add-btn");
 
 
 const changeTotalPrice = () => {
+  if (servicePrice) {
+    const numberOfGuests = parseInt(document.getElementById("guests-input").value, 10);
+    totalPrice.innerText = `$${numberOfGuests * servicePrice}`
+  }
+
   if (lessButton) {
     lessButton.addEventListener("click", event => {
       event.preventDefault();
