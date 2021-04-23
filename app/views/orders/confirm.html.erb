@@ -1,5 +1,5 @@
 <div class="container-fluid container-padding">
-  <div class="container-order-confirm bg-white">
+  <div class="container-order-confirm bg-white pb-5">
     <h2 class="font-weight-bold py-3">Resumen</h2>
     <p class="font-weight-bold text-muted">SERVICIO</p>
     <div class="d-flex order-service">
@@ -43,6 +43,7 @@
       <p class="text-dark font-weight-bold">Total</p>
       <h4 class="text-dark font-weight-bold">$ <%= @order.guests * @order.service.cost %></h4>
     </div>
+    <%= link_to '¡Comprar!', paid_order_path(@order), class: "btn btn-primary w-100" %>
   </div>
 </div>
 
