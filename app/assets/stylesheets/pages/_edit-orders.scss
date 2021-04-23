@@ -105,3 +105,40 @@
     }
   }
 }
+
+fieldset{
+  display: flex;
+
+  legend {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  fieldset {
+    flex-direction: column;
+  }
+}
+
+.form-check {
+  padding-left: 0;
+  padding-right: 5px;
+  margin-bottom: 7px;
+
+  .delivery-order {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  .delivery-order + label {
+    cursor: pointer;
+    padding: 15px 25px;
+    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.3);
+    border-radius: 3px;
+  }
+
+  .delivery-order:checked + label {
+    box-shadow: 0 0 5px $primary;
+    border: 2px solid $primary;
+  }
+}

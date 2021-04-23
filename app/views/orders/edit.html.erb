@@ -2,30 +2,28 @@
   <div class="container-order bg-white">
     <%= simple_form_for @order do |f| %>
       <p class="font-weight-bold">Tipo de entrega</p>
-      <%= f.input :delivery, as: :check_boxes, collection: DELIVERY %>
+      <%= f.input :delivery, as: :radio_buttons, collection: DELIVERY, input_html: { class: "delivery-order" } %>
       <div class="container-address">
         <i class="fas fa-map-marker-alt"></i>
         <%= f.input :address, label: "Dirección de entrega" %>
       </div>
       <%= f.input :apartment, label: "Apartamento (opcional)" %>
-      <%= f.input :address, label: "Dirección de entrega", disabled: true %>
-      <%= f.input :apartment, label: "Apartamento (opcional)", disabled: true %>
       <div class="container-date">
         <i class="fas fa-calendar-alt"></i>
-        <%= f.input :date, label: "Fecha de entrega", as: :string, input_html: {class: "datepicker"}, placeholder: "DD/ MM/ AA" %>
+        <%= f.input :date, label: "Fecha de entrega", as: :string, input_html: { class: "datepicker" }, placeholder: "DD/ MM/ AA" %>
       </div>
       <p class="font-weight-bold">Horario</p>
       <div class="row d-flex align-items-center order-times">
         <div class="container-from col-12 col-md-3">
           <i class="far fa-clock"></i>
-          <%= f.input :from, label: false, as: :string, input_html: {class: "timepicker"}, placeholder: "00:00" %>
+          <%= f.input :from, label: false, as: :string, input_html: { class: "timepicker" }, placeholder: "00:00" %>
         </div>
         <div class="col-12 col-md-1">
           <span class="my-2 font-weight-bold">hasta</span>
         </div>
         <div class="container-to col-12 col-md-3">
           <i class="far fa-clock"></i>
-          <%= f.input :to, label: false, as: :string, input_html: {class: "timepicker"}, placeholder: "01:00" %>
+          <%= f.input :to, label: false, as: :string, input_html: { class: "timepicker" }, placeholder: "01:00" %>
         </div>
       </div>
       <%= f.input :comments, label: "Comentarios" %>
