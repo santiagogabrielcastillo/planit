@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
   before_action :set_service, only: %I[create]
   before_action :set_order, only: %I[edit update confirm paid]
 
+  def index
+    @orders = Order.where(user: current_user)
+  end
+
   def create
     @order = Order.new(order_params)
     @order.user = current_user
