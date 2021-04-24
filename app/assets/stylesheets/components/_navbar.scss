@@ -16,7 +16,10 @@
 }
 
 .navbar-logo {
-  width: 15vw;
+  object-fit: contain;
+  width: 14vw;
+  height: 35px;
+  margin: 11px 0;
 }
 
 #purchases {

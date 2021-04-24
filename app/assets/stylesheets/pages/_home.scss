@@ -1,9 +1,18 @@
+.homepage {
+  h4 {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.7px;
+  }
+}
+
 .category {
   margin: auto 0;
   display: inline-block;
 
   h6 {
     font-size: 15px;
+    font-weight: 700;
   }
 }
 
@@ -18,6 +27,7 @@
   box-shadow: 0 0 4px $light-blue;
 
   &:hover {
-    box-shadow: 0 0 15px $light-blue;
+    border: solid 4px $light-blue;
+    box-shadow: 0 0 7px $light-blue;
   }
 }
