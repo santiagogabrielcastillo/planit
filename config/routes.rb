@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   root to: 'pages#home'
+  get 'success', to: "pages#success", as: "success"
   get 'orders/:id/confirm', to: "orders#confirm", as: "confirm_order"
   patch 'orders/:id/paid', to: "orders#paid", as: "paid_order"
 
