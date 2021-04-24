@@ -15,16 +15,23 @@
               <% end %>
               <h6 class="font-weight-bold mt-3 mb-0"><%= order.service.name %></h6>
               <span class="text-muted mt-0"><%= order.service.description %></span>
-              <%= link_to 'Ver detalle', '#' , class: "text-dark mt-3 font-weight-bold" %>
+              <%= link_to 'Ver detalles', '#' , class: "text-dark mt-3 font-weight-bold" %>
             </div>
           </div>
-          <div class="d-flex justify-content-between">
-            <div>
+          <div class="d-flex justify-content-between align-items-center purchase-price">
+            <div class="d-flex flex-column justify-content-center">
               <h4>Total: $<%= order.guests * order.service.cost %></h4>
               <% if order.paid == false %>
-                <span class="expire">Expira: <%= (order.created_at + 1.week).strftime("%D/%m/%Y") %></span>
+                <span id="expire">Expira: <%= (order.created_at + 1.week).strftime("%d/%m/%Y") %></span>
               <% end %>
             </div>
+            <% if order.paid == false %>
+              <div>
+                <%= link_to 'Pagar', confirm_order_path(order), class: "btn btn-primary px-4" %>
+              </div>
+            <% else %>
+              <h6 class="text-dark font-weight-bold"><i class="far fa-clock text-dark"></i> A confirmar</h6>
+            <% end %>
           </div>
         </div>
       <% end %>
