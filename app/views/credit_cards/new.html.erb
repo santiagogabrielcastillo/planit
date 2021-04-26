@@ -2,8 +2,8 @@
   <div class="bg-white p-4">
     <h3 class="py-3">Guardar nueva tarjeta de crédito</h3>
     <%= simple_form_for [@user, @credit_card] do |f| %>
-      <%= f.input :number, label: "Número de tarjeta" %>
-      <%= f.input :name, label: "Nombre del titular" %>
+      <%= f.input :number, label: "Número de tarjeta", placeholder: "xxxx-xxxx-xxxx-xxxx" %>
+      <%= f.input :name, label: "Nombre del titular", placeholder: "John Doe" %>
       <%= f.input :expire, label: "Mes y año de vencimiento", placeholder: "MM/AA" %>
       <%= f.submit 'Guardar', class: "btn btn-primary mt-3" %>
     <% end %>
