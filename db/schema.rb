@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_24_185416) do
+ActiveRecord::Schema.define(version: 2021_04_26_124042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2021_04_24_185416) do
     t.bigint "provider_id"
     t.index ["category_id"], name: "index_categories_providers_on_category_id"
     t.index ["provider_id"], name: "index_categories_providers_on_provider_id"
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "number"
+    t.string "name"
+    t.string "expire"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -106,6 +116,7 @@ ActiveRecord::Schema.define(version: 2021_04_24_185416) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "orders", "services"
   add_foreign_key "orders", "users"
   add_foreign_key "services", "providers"
