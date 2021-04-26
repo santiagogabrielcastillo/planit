@@ -16,18 +16,13 @@
     <div class="d-flex justify-content-between align-items-center pt-4">
       <div>
         <h6 class="font-weight-bold mb-0 text-muted"><%= @order.service.name %></h6>
-        <p class="text-muted"><%= @order.guests %> invitados</p>
+        <span class="text-muted mt-0"><%= @order.service.description %></span>
+        <p class="text-muted"><i class="fas fa-user"></i> <%= @order.guests %> invitados</p>
       </div>
-      <%= link_to edit_order_path(@order) do %>
-        <i class="fas fa-pen mr-3 text-dark"></i>
-      <% end %>
     </div>
     <hr>
     <div class="d-flex justify-content-between align-items-center pt-4">
       <p class="font-weight-bold text-muted">DETALLES DE LA ENTREGA</p>
-      <%= link_to edit_order_path(@order) do %>
-        <i class="fas fa-pen mr-3 text-dark"></i>
-      <% end %>
     </div>
     <p><i class="fas fa-map-marker-alt text-dark mr-3"></i> <%= @order.address %> | <%= @order.apartment %></p>
     <p><i class="far fa-calendar-alt text-dark mr-3"></i> <%= I18n.l(@order.date, format: '%A %d de %B') %></p>
