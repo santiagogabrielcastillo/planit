@@ -53,3 +53,12 @@
     font-size: 35px;
   }
 }
+
+.services-links {
+  a {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 0;
+    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.4);
+  }
+}
