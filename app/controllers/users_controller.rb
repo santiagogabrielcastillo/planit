@@ -18,7 +18,8 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:id])
+    redirect_to root_path if @user != current_user
   end
 
   def user_params

@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
   def paid
     @order.paid = true
     @order.save
+    redirect_to success_path
   end
 
   def show

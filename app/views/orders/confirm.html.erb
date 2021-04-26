@@ -56,7 +56,7 @@
       <p class="text-dark font-weight-bold">Total</p>
       <h4 class="text-dark font-weight-bold">$ <%= @order.guests * @order.service.cost %></h4>
     </div>
-    <%= link_to '¡Comprar!', paid_order_path(@order), class: "btn btn-primary w-100" %>
+    <%= link_to '¡Comprar!', paid_order_path(@order), method: :patch, class: "btn btn-primary w-100" %>
   </div>
 </div>
 
