@@ -5,7 +5,7 @@ const addButton = document.getElementById("add-btn");
 
 
 const changeTotalPrice = () => {
-  if (servicePrice) {
+  if (addButton) {
     const numberOfGuests = parseInt(document.getElementById("guests-input").value, 10);
     totalPrice.innerText = `$${numberOfGuests * parseInt((servicePrice).innerText.slice(1), 10)}`
   }
