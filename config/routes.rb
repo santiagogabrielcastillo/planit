@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: %i[create edit update show index]
+
+  resources :users do
+    resources :credit_cards, only: %I[new create show destroy index]
+  end
 end
