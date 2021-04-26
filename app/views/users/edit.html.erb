@@ -1,0 +1,11 @@
+<div class="container-fluid container-padding">
+  <div class="bg-white p-4">
+    <h3>Editar información personal</h3>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :name, label: "Nombre" %>
+      <%= f.input :email, label: "Email", disabled: true %>
+      <%= f.input :phone, label: "Teléfono" %>
+      <%= f.submit 'Editar', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
