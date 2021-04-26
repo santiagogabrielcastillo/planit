@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_service, only: %I[create]
-  before_action :set_order, only: %I[edit update confirm paid]
+  before_action :set_order, only: %I[edit update confirm paid show]
 
   def index
     @orders = Order.where(user: current_user)
@@ -35,6 +35,9 @@ class OrdersController < ApplicationController
   def paid
     @order.paid = true
     @order.save
+  end
+
+  def show
   end
 
   private

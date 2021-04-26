@@ -15,7 +15,7 @@
               <% end %>
               <h6 class="font-weight-bold mt-3 mb-0"><%= order.service.name %></h6>
               <span class="text-muted mt-0"><%= order.service.description %></span>
-              <%= link_to 'Ver detalles', '#' , class: "text-dark mt-3 font-weight-bold" %>
+              <%= link_to 'Ver detalles', order_path(order) , class: "text-dark mt-3 font-weight-bold" %>
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-center purchase-price">
