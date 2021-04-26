@@ -29,7 +29,9 @@
         <i class="fas fa-pen mr-3 text-dark"></i>
       <% end %>
     </div>
-    <p><i class="fas fa-map-marker-alt text-dark mr-3"></i> <%= @order.address %> | <%= @order.apartment %></p>
+    <% if @order.delivery == "A domicilio" %>
+      <p><i class="fas fa-map-marker-alt text-dark mr-3"></i> <%= @order.address %> | <%= @order.apartment %></p>
+    <% end %>
     <p><i class="far fa-calendar-alt text-dark mr-3"></i> <%= I18n.l(@order.date, format: '%A %d de %B') %></p>
     <p><i class="far fa-clock text-dark mr-3"></i>De <%= @order.from.strftime("%H:%M") %> a <%= @order.to.strftime("%H:%M") %></p>
     <hr>
