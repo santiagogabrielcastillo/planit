@@ -1,6 +1,7 @@
 class CreditCardsController < ApplicationController
   before_action :set_credit_card, only: %I[edit update destroy]
   before_action :set_user, only: %I[new create edit]
+
   def new
     @credit_card = CreditCard.new
   end

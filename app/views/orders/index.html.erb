@@ -29,7 +29,7 @@
               <div class="col-12 col-md-6">
                 <% if order.paid == false %>
                   <div>
-                    <%= link_to 'Pagar', confirm_order_path(order), class: "btn btn-primary px-4 w-100" %>
+                    <%= link_to 'Pagar', edit_order_path(order), class: "btn btn-primary px-4 w-100" %>
                   </div>
                 <% else %>
                   <h6 class="text-dark font-weight-bold"><i class="far fa-clock text-dark"></i> A confirmar</h6>
