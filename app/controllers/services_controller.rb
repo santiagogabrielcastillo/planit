@@ -17,6 +17,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @order = Order.new
   end
 
   private
@@ -26,6 +27,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:name, :description, :cost)
+    params.require(:service).permit(:name, :description, :cost, :provider_id)
   end
 end

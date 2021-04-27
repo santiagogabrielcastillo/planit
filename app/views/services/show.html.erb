@@ -1,12 +1,40 @@
 <div class="container-fluid container-padding service">
-  <%= image_tag "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" %>
-  <div class="container-fluid">
-    <h1><%= @provider.name %></h1>
-    <h3><%= @service.name %></h3>
-    <p><%= @service.description %></p>
-    <p><%= @service.cost %></p>
+  <%= image_tag "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"%>
+  <div class="bg-white px-3">
+    <div class="container-fluid">
+      <%= link_to provider_path(@provider) do %>
+        <h2 class="pt-3">Proveedor: <%= @provider.name %></h2>
+      <% end %>
+      <h3><%= @service.name %></h3>
+      <p><%= @service.description %></p>
+      <span id="provider-service-cost" class="text-dark">$<%= @service.cost %></span> <span>x invitado</span>
+      <hr>
+      <p class="font-weight-bold">INVITADOS</p>
+      <%= simple_form_for @order do |f| %>
+        <div class="d-flex align-items-end mb-3">
+          <%= f.input :service_id, as: :hidden, input_html: { value: "#{@service.id}" } %>
+          <%= f.input :guests, label: "Invitados", as: :string, input_html: { id: "guests-input", value: "0" } %>
+          <button id="less-btn">-</button>
+          <button id="add-btn">+</button>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-md-4 d-flex justify-content-between align-items-center">
+            <p class="font-weight-bold mb-0 text-dark">Total:</p><span class="text-dark" id="total-price"></span>
+          </div>
+        </div>
+        <div class="d-flex pb-5 mt-3">
+          <div class="row services-links">
+            <div class="col-12 col-lg-6 mb-2 text-center">
+              <%= link_to orders_path, class: "text-dark" do %>
+                <i class="fas fa-plus-circle"></i> Agregar a lista
+              <% end %>
+            </div>
+            <div class="col-12 col-lg-6">
+              <%= f.submit 'Comprar', class: "btn btn-primary text-dark px-5 py-2 w-100 text-center" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-
-  <!--Acá van a ir los servicios de cada proveedor-->
 </div>

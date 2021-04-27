@@ -1,0 +1,36 @@
+<div class="container-fluid container-padding">
+  <div class="container-order-confirm bg-white pb-5">
+    <h2 class="font-weight-bold py-3">Resumen</h2>
+    <p class="font-weight-bold text-muted">SERVICIO</p>
+    <div class="d-flex order-service">
+      <%= image_tag "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" %>
+      <div class="container-fluid d-flex flex-column justify-content-between pl-3">
+        <h4><%= @order.service.provider.name %></h4>
+        <% if @order.delivery == "A domicilio" %>
+          <p class="mb-0"><i class="fas fa-truck"></i> Entrega a domicilio</p>
+        <% else %>
+          <p class="mb-0"><i class="fas fa-store"></i> Retiro en el local</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center pt-4">
+      <div>
+        <h6 class="font-weight-bold mb-0 text-muted"><%= @order.service.name %></h6>
+        <span class="text-muted mt-0"><%= @order.service.description %></span>
+        <p class="text-muted"><i class="fas fa-user"></i> <%= @order.guests %> invitados</p>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-center pt-4">
+      <p class="font-weight-bold text-muted">DETALLES DE LA ENTREGA</p>
+    </div>
+    <p><i class="fas fa-map-marker-alt text-dark mr-3"></i> <%= @order.address %> | <%= @order.apartment %></p>
+    <p><i class="far fa-calendar-alt text-dark mr-3"></i> <%= I18n.l(@order.date, format: '%A %d de %B') %></p>
+    <p><i class="far fa-clock text-dark mr-3"></i>De <%= @order.from.strftime("%H:%M") %> a <%= @order.to.strftime("%H:%M") %></p>
+    <hr>
+    <div class="d-flex justify-content-between align-items-center pt-4">
+      <p class="text-dark font-weight-bold">Total</p>
+      <h4 class="text-dark font-weight-bold">$ <%= @order.guests * @order.service.cost %></h4>
+    </div>
+  </div>
+</div>

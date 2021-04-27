@@ -1,0 +1,66 @@
+.container-orders {
+  padding: 0 5%;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  h3 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  p {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  i {
+    color: $primary;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 500;
+    width: 80%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.purchase {
+  padding: 25px 0px 14px 12px;
+  border-radius: 8px 8px 0 0 ;
+  border: solid 1px #e0e7f1;
+}
+
+.purchase-price {
+  min-height: 70px;
+  padding: 5px 15px;
+  border-radius: 0 0 8px 8px;
+  border: solid 1px #e0e7f1;
+}
+
+#expire {
+  font-size: 12px;
+  margin: 0;
+  text-overflow: clip;
+}
+
+@media only screen and (max-width: 281px) {
+  .purchase {
+    padding: 25px 25px 14px 12px;
+    border-radius: 8px;
+    border: solid 1px #e0e7f1;
+  }
+}

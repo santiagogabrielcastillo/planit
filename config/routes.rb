@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'success', to: 'pages#success', as: 'success'
+  get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
+  patch 'orders/:id/paid', to: 'orders#paid', as: 'paid_order'
 
   resources :providers, only: %I[show new create edit update]
 
@@ -11,5 +13,11 @@ Rails.application.routes.draw do
     resources :services, only: %i[new create show]
   end
 
-  resources :categories, only: %i[show]
+  resources :categories, only: %I[show]
+
+  resources :orders, only: %i[create edit update show index]
+
+  resources :users, only: %I[show edit update] do
+    resources :credit_cards, only: %I[new create edit update show destroy]
+  end
 end

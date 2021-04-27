@@ -26,9 +26,14 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { changeGuests } from '../components/init_guests_input';
+import { changeTotalPrice } from '../components/init_order_price';
+import { initFlatpickr } from '../plugins/flatpickr';
+import { setDelivery } from '../components/init_order_delivery';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  changeGuests();
+  changeTotalPrice();
+  initFlatpickr();
+  setDelivery();
 });

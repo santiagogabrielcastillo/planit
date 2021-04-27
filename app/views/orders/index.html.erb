@@ -1,0 +1,44 @@
+<div class="container-fluid container-padding">
+  <div class="container-orders bg-white">
+    <h3 class="pt-5 mb-4">Mis Compras</h3>
+    <div class="row">
+      <% @orders.each do |order| %>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="d-flex purchase">
+            <%= image_tag "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" %>
+            <div class="container-fluid d-flex flex-column justify-content-between pl-3">
+              <h4><%= order.service.provider.name %></h4>
+              <% if order.delivery == "A domicilio" %>
+                <p class="mb-0"><i class="fas fa-truck"></i> Entrega a domicilio</p>
+              <% else %>
+                <p class="mb-0"><i class="fas fa-store"></i> Retiro en el local</p>
+              <% end %>
+              <h6 class="font-weight-bold mt-3 mb-0"><%= order.service.name %></h6>
+              <span class="text-muted mt-0"><%= order.service.description %></span>
+              <%= link_to 'Ver detalles', order_path(order) , class: "text-dark mt-3 font-weight-bold" %>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center purchase-price">
+            <div class="row w-100 mx-auto">
+              <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+                <h4>Total: $<%= order.guests * order.service.cost %></h4>
+                <% if order.paid == false %>
+                  <span id="expire">Expira: <%= (order.created_at + 1.week).strftime("%d/%m/%Y") %></span>
+                <% end %>
+              </div>
+              <div class="col-12 col-md-6">
+                <% if order.paid == false %>
+                  <div>
+                    <%= link_to 'Pagar', edit_order_path(order), class: "btn btn-primary px-4 w-100" %>
+                  </div>
+                <% else %>
+                  <h6 class="text-dark font-weight-bold"><i class="far fa-clock text-dark"></i> A confirmar</h6>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

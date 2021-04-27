@@ -9,6 +9,14 @@
   i {
     color: $primary;
   }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+  }
 }
 
 .provider-service {
@@ -26,10 +34,22 @@
   }
 
   p {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     margin-bottom: 0;
   }
 }
 
 #provider-service-cost {
   font-size: 35px
+}
+
+.provider-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

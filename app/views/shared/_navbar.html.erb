@@ -19,10 +19,10 @@
           </li>
         <% elsif user_signed_in? %>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <%= link_to orders_path, class: "nav-link d-flex" do %>
                 <%= image_tag 'pedidos.png' %>
                 <p id="purchases">Mis compras</p>
-              </a>
+              <% end %>
             </li>
           <%= link_to "Log out", destroy_user_session_path, class: "nav-link" %>
         <% else %>

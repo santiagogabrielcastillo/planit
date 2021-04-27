@@ -1,6 +1,5 @@
 ActiveAdmin.register Provider do
-
-  permit_params :name, :address, :description, :delivery, :schedule, category_ids: []
+  permit_params :name, :address, :description, :schedule, category_ids: []
 
   index do
     selectable_column
@@ -8,7 +7,6 @@ ActiveAdmin.register Provider do
     column :name
     column :address
     column :description
-    column :delivery
     column :schedule
     column :categories
     actions
@@ -16,14 +14,19 @@ ActiveAdmin.register Provider do
 
   show do
     attributes_table do
+      row :id
       row :name
       row :address
       row :description
-      row :delivery
       row :schedule
       table_for provider.categories.order('name ASC') do
         column "Categories" do |category|
           link_to category.name, [ :admin, category ]
+        end
+      end
+      table_for provider.services.order('name ASC') do
+        column 'Services' do |service|
+          link_to service.name, [:admin, service]
         end
       end
     end
