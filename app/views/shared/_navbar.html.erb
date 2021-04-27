@@ -1,20 +1,35 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid d-flex justify-content-between">
+<nav class="navbar navbar-light navbar-expand-lg bg-light justify-content-between">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag 'logo-blanco', class: "navbar-logo" %>
     <% end %>
-    <% if current_user && current_user.admin = true %>
-      <%= link_to "Crear nuevo proveedor", new_provider_path %>
-      <%= link_to 'Admin panel', admin_root_path %>
-      <%= link_to 'Log out',  destroy_user_session_path %>
-    <% elsif current_user %>
-      <div class="d-flex">
-        <%= image_tag 'pedidos.png', input_html: {id: "pedidos-img"} %>
-        <p id="mis-compras">Mis compras</p>
-      </div>
-      <%= link_to "Log out", destroy_user_session_path %>
-    <% else %>
-      <%= link_to "Ingresar", new_user_session_path %>
-    <% end %>
-  </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="d-flex justify-content-between ml-2 mr-3 mt-2 mt-lg-0 navbar-nav w-100">
+        <% if user_signed_in? and current_user.admin == true %>
+          <li class="nav-item">
+            <%= link_to "Crear nuevo proveedor", new_provider_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Admin panel', admin_root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log out',  destroy_user_session_path, class: "nav-link" %>
+          </li>
+        <% elsif user_signed_in? %>
+            <li class="nav-item">
+              <a href="#" class="nav-link d-flex">
+                <%= image_tag 'pedidos.png' %>
+                <p id="purchases">Mis compras</p>
+              </a>
+            </li>
+          <%= link_to "Log out", destroy_user_session_path, class: "nav-link" %>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to "Ingresar", new_user_session_path, class: "nav-link" %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
 </nav>

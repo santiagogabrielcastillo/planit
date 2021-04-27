@@ -1,1 +1,34 @@
-// Specific CSS for your home-page
+.homepage {
+  h4 {
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.7px;
+  }
+}
+
+.category {
+  margin: auto 0;
+  display: inline-block;
+
+  h6 {
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.category-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  object-position: center;
+  background-color: white;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 0 4px $light-blue;
+
+  &:hover {
+    border: solid 4px $light-blue;
+    box-shadow: 0 0 7px $light-blue;
+  }
+}
