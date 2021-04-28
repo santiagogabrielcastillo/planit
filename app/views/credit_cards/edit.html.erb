@@ -2,9 +2,9 @@
   <div class="bg-white p-4">
     <h3 class="py-3">Editar tarjeta de crédito</h3>
     <%= simple_form_for [@user, @credit_card] do |f| %>
-      <%= f.input :number, label: "Número de tarjeta" %>
-      <%= f.input :name, label: "Nombre del titular" %>
-      <%= f.input :expire, label: "Mes y año de vencimiento", placeholder: "MM/AA" %>
+      <%= f.input :number, label: 'Número de tarjeta' %>
+      <%= f.input :name, label: 'Nombre del titular' %>
+      <%= f.input :expire, label: 'Mes y año de vencimiento', placeholder: 'MM/AA' %>
       <%= f.submit 'Editar', class: "btn btn-primary mt-3" %>
     <% end %>
   </div>
