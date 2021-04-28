@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @category = Category.find(47)
+    @category = Category.where(name: "Pastelería").first
     render :show
   end
 
