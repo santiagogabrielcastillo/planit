@@ -20,7 +20,7 @@ ActiveAdmin.register Provider do
       row :description
       row :schedule
       table_for provider.categories.order('name ASC') do
-        column "Categories" do |category|
+        column 'Categories' do |category|
           link_to category.name, [ :admin, category ]
         end
       end
@@ -33,7 +33,7 @@ ActiveAdmin.register Provider do
   end
 
   form do |f|
-    f.inputs "Add/Edit Provider" do
+    f.inputs 'Add/Edit Provider' do
       f.input :name
       f.input :address
       f.input :description
