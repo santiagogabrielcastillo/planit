@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  root to: 'pages#home'
+  get '/', to: redirect('/categories')
+  root to: 'categories#index'
   get 'success', to: 'pages#success', as: 'success'
   get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
   patch 'orders/:id/paid', to: 'orders#paid', as: 'paid_order'
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
     resources :services, only: %i[new create show edit update]
   end
 
-  resources :categories, only: %I[show]
+  resources :categories, only: %I[show index]
 
   resources :orders, only: %i[create edit update show index]
 
