@@ -1,5 +1,5 @@
 ActiveAdmin.register Provider do
-  permit_params :name, :address, :description, :schedule, category_ids: []
+  permit_params :name, :address, :description, :schedule, :photo, category_ids: []
 
   index do
     selectable_column
@@ -37,8 +37,8 @@ ActiveAdmin.register Provider do
       f.input :name
       f.input :address
       f.input :description
-      f.input :delivery
       f.input :schedule
+      f.input :photo, as: :file
       f.input :categories, as: :check_boxes
     end
     actions
