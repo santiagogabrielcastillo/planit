@@ -6,6 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def index
+    @category = Category.find(47)
+    render :show
   end
 
   private
