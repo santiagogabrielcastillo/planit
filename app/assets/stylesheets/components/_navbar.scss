@@ -15,6 +15,10 @@
   flex-grow: 0;
 }
 
+.dropdown-menu {
+  left: -74px !important;
+}
+
 .navbar-logo {
   object-fit: contain;
   width: 14vw;
@@ -23,8 +27,29 @@
 }
 
 #purchases {
-  font-size: 18px;
   color: white;
   margin: 0;
   padding-left: 10px;
 }
+
+@media only screen and (max-width: 281px) {
+  .nav-item {
+    p {
+      font-size: 12px;
+    }
+
+    img {
+      width: 15px;
+    }
+  }
+}
+
+@media only screen and (min-width: 282px) {
+  .nav-item {
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+

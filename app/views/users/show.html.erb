@@ -1,6 +1,11 @@
 <div class="container-fluid container-padding">
   <div class="bg-white p-4">
-    <h3>Información personal</h3>
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>Información personal</h3>
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="fas fa-pen"></i>
+      <% end %>
+    </div>
     <%= simple_form_for @user do |f| %>
       <%= f.input :name, label: "Nombre", disabled: true %>
       <%= f.input :email, label: "Email", disabled: true %>
