@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %I[index show]
   before_action :set_categories, only: %I[show index]
 
   def show
