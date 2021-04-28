@@ -5,7 +5,11 @@
       <% @orders.each do |order| %>
         <div class="col-12 col-md-6 mb-4">
           <div class="d-flex purchase">
-            <%= image_tag "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" %>
+            <% if order.service.photo.attached? %>
+              <%= cl_image_tag(order.service.photo.key) %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" %>
+            <% end %>
             <div class="container-fluid d-flex flex-column justify-content-between pl-3">
               <h4><%= order.service.provider.name %></h4>
               <% if order.delivery == "A domicilio" %>

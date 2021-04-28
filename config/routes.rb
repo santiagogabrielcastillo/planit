@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :providers, only: %I[show new create edit update]
 
   resources :providers do
-    resources :services, only: %i[new create show]
+    resources :services, only: %i[new create show edit update]
   end
 
   resources :categories, only: %I[show]

@@ -1,5 +1,5 @@
 ActiveAdmin.register Provider do
-  permit_params :name, :address, :description, :schedule, category_ids: []
+  permit_params :name, :address, :description, :schedule, :photo, category_ids: []
 
   index do
     selectable_column
@@ -20,7 +20,7 @@ ActiveAdmin.register Provider do
       row :description
       row :schedule
       table_for provider.categories.order('name ASC') do
-        column "Categories" do |category|
+        column 'Categories' do |category|
           link_to category.name, [ :admin, category ]
         end
       end
@@ -33,12 +33,12 @@ ActiveAdmin.register Provider do
   end
 
   form do |f|
-    f.inputs "Add/Edit Provider" do
+    f.inputs 'Add/Edit Provider' do
       f.input :name
       f.input :address
       f.input :description
-      f.input :delivery
       f.input :schedule
+      f.input :photo, as: :file
       f.input :categories, as: :check_boxes
     end
     actions
