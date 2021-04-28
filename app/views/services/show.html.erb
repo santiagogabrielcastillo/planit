@@ -8,6 +8,10 @@
       <h3><%= @service.name %></h3>
       <p><%= @service.description %></p>
       <span id="provider-service-cost" class="text-dark">$<%= @service.cost %></span> <span>x invitado</span>
+      <br>
+      <% if current_user.admin == true %>
+        <%= link_to 'Editar servicio', edit_provider_service_path(@provider, @service) %>
+      <% end %>
       <hr>
       <p class="font-weight-bold">INVITADOS</p>
       <%= simple_form_for @order do |f| %>

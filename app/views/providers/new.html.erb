@@ -7,6 +7,7 @@
       <%= f.input :description %>
       <%= f.association :categories, collection: Category.all.order(:name), multiple: true %>
       <%= f.input :schedule %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit 'Crear', class: "btn btn-primary" %>
     <% end %>
   </div>
