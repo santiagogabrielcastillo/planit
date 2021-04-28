@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  get '/', to: redirect('/categories')
+  get '/', to: redirect('/categories/47')
   root to: 'categories#index'
   get 'success', to: 'pages#success', as: 'success'
   get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
