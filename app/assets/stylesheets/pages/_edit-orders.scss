@@ -12,6 +12,10 @@
   input {
     padding-left: 22px;
   }
+
+  span {
+    font-size: 14px;
+  }
 }
 
 .form-control {
@@ -33,7 +37,7 @@
     i {
       position: absolute;
       top: 64px;
-      left: 7px;
+      left: 10px;
     }
   }
 
@@ -75,7 +79,7 @@
     i {
       position: absolute;
       top: 41px;
-      left: 7px;
+      left: 13px;
     }
   }
 
@@ -116,11 +120,22 @@ fieldset{
   legend {
     display: none;
   }
+
+  .form-check {
+    padding-right: 18px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   fieldset {
     flex-direction: column;
+  }
+
+  .container-order {
+    input[type=submit] {
+      width: 140px;
+      padding: 12px 0;
+    }
   }
 }
 
@@ -146,5 +161,14 @@ fieldset{
   .delivery-order:checked + label {
     box-shadow: 0 0 5px $primary;
     border: 2px solid $primary;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .container-order {
+    input[type=submit] {
+      width: 280px;
+      padding: 12px 0;
+    }
   }
 }
