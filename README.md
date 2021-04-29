@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Rails app developed for the on boarding process of [eagerWorks](https://eagerworks.com/).
+
+It can be seen and tried at: [https://eagerworks-planit.herokuapp.com/](https://eagerworks-planit.herokuapp.com/)
