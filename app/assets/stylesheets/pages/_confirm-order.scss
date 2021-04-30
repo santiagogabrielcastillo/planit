@@ -1,3 +1,13 @@
+.container-order-confirm {
+  .form-check {
+    padding-left: 22px;
+
+    input {
+      color: $primary;
+    }
+  }
+}
+
 @media only screen and (max-width: 360px) {
   .container-order-confirm {
     padding: 0 16%;

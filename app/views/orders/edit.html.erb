@@ -2,7 +2,21 @@
   <div class="container-order bg-white">
     <%= simple_form_for @order do |f| %>
       <p class="font-weight-bold">Tipo de entrega</p>
-      <%= f.input :delivery, as: :radio_buttons, collection: DELIVERY, input_html: { class: "delivery-order" } %>
+      <fieldset class="form-group radio_buttons optional order_delivery">
+        <legend class="col-form-label pt-0">Delivery</legend>
+        <input type="hidden" name="order[delivery]" value="">
+        <div class="form-check container-delivery-home">
+          <i class="fas fa-truck"></i>
+          <input class="form-check-input radio_buttons optional delivery-order" type="radio" value="A domicilio" name="order[delivery]" id="order_delivery_a_domicilio">
+          <label class="form-check-label collection_radio_buttons" for="order_delivery_a_domicilio">A domicilio</label>
+        </div>
+        <div class="form-check container-delivery-local">
+          <i class="fas fa-store"></i>
+          <input class="form-check-input radio_buttons optional delivery-order" type="radio" value="Retiro en local" name="order[delivery]" id="order_delivery_retiro_en_local">
+          <label class="form-check-label collection_radio_buttons" for="order_delivery_retiro_en_local">Retiro en local</label>
+        </div>
+      </fieldset>
+      <%# <%= f.input :delivery, as: :radio_buttons, collection: DELIVERY, input_html: { class: "delivery-order" } %>
       <div class="container-address">
         <i class="fas fa-map-marker-alt"></i>
         <%= f.input :address, label: "Dirección de entrega" %>
@@ -18,7 +32,7 @@
           <i class="far fa-clock"></i>
           <%= f.input :from, label: false, as: :string, input_html: { class: "timepicker" }, placeholder: "00:00" %>
         </div>
-        <div class="col-12 col-md-1">
+        <div class="col-12 col-md-2 col-lg-1">
           <span class="my-2 font-weight-bold">hasta</span>
         </div>
         <div class="container-to col-12 col-md-3">
@@ -27,7 +41,7 @@
         </div>
       </div>
       <%= f.input :comments, label: "Comentarios" %>
-      <%= f.submit 'Continuar', class: "btn btn-primary px-5 text-dark" %>
+      <%= f.submit 'Continuar', class: "btn btn-primary text-dark mt-4" %>
     <% end %>
   </div>
 </div>

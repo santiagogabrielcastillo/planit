@@ -10,7 +10,11 @@
   }
 
   input {
-    padding-left: 22px;
+    padding-left: 30px;
+  }
+
+  span {
+    font-size: 14px;
   }
 }
 
@@ -33,7 +37,27 @@
     i {
       position: absolute;
       top: 64px;
-      left: 7px;
+      left: 10px;
+    }
+  }
+
+  .container-delivery-local {
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 26px;
+      left: 8px;
+    }
+  }
+
+  .container-delivery-home {
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 17px;
+      left: 8px;
     }
   }
 
@@ -75,7 +99,27 @@
     i {
       position: absolute;
       top: 41px;
-      left: 7px;
+      left: 13px;
+    }
+  }
+
+  .container-delivery-local {
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 17px;
+      left: 6px;
+    }
+  }
+
+  .container-delivery-home {
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 18px;
+      left: 6px;
     }
   }
 
@@ -116,11 +160,22 @@ fieldset{
   legend {
     display: none;
   }
+
+  .form-check {
+    padding-right: 18px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   fieldset {
     flex-direction: column;
+  }
+
+  .container-order {
+    input[type=submit] {
+      width: 140px;
+      padding: 12px 0;
+    }
   }
 }
 
@@ -135,10 +190,11 @@ fieldset{
   }
 
   .delivery-order + label {
+    font-size: 14px;
     text-align: center;
     min-width: 150px;
     cursor: pointer;
-    padding: 15px 25px;
+    padding: 15px 30px;
     box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.3);
     border-radius: 3px;
   }
@@ -146,5 +202,14 @@ fieldset{
   .delivery-order:checked + label {
     box-shadow: 0 0 5px $primary;
     border: 2px solid $primary;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .container-order {
+    input[type=submit] {
+      width: 280px;
+      padding: 12px 0;
+    }
   }
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid container-padding">
   <div class="container-order-confirm bg-white pb-5">
-    <h2 class="font-weight-bold py-3">Resumen</h2>
-    <p class="font-weight-bold text-muted">SERVICIO</p>
+    <h2 class="font-weight-bold pt-5 pb-3">Resumen</h2>
+    <p class="text-muted">SERVICIO</p>
     <div class="d-flex order-service">
       <% if @order.service.photo.attached? %>
         <%= cl_image_tag(@order.service.photo.key) %>
@@ -11,15 +11,15 @@
       <div class="container-fluid d-flex flex-column justify-content-between pl-3">
         <h4><%= @order.service.provider.name %></h4>
         <% if @order.delivery == 'A domicilio' %>
-          <p class="mb-0"><i class="fas fa-truck"></i> Entrega a domicilio</p>
+          <p class="mb-0"><i class="fas fa-truck text-primary"></i> Entrega a domicilio</p>
         <% else %>
-          <p class="mb-0"><i class="fas fa-store"></i> Retiro en el local</p>
+          <p class="mb-0"><i class="fas fa-store text-primary"></i> Retiro en el local</p>
         <% end %>
       </div>
     </div>
     <div class="d-flex justify-content-between align-items-center pt-4">
       <div>
-        <h6 class="font-weight-bold mb-0 text-muted"><%= @order.service.name %></h6>
+        <h6 class="font-weight-bold mb-0 text-dark"><%= @order.service.name %></h6>
         <p class="text-muted"><%= @order.guests %> invitados</p>
       </div>
       <%= link_to edit_order_path(@order) do %>
@@ -28,24 +28,24 @@
     </div>
     <hr>
     <div class="d-flex justify-content-between align-items-center pt-4">
-      <p class="font-weight-bold text-muted">DETALLES DE LA ENTREGA</p>
+      <p class="text-muted">DETALLES DE LA ENTREGA</p>
       <%= link_to edit_order_path(@order) do %>
         <i class="fas fa-pen mr-3 text-dark"></i>
       <% end %>
     </div>
     <% if @order.delivery == 'A domicilio' %>
-      <p><i class="fas fa-map-marker-alt text-dark mr-3"></i> <%= @order.address %> | <%= @order.apartment %></p>
+      <p class="text-dark"><i class="fas fa-map-marker-alt text-dark mr-3"></i> <%= @order.address %> | <%= @order.apartment %></p>
     <% end %>
-    <p><i class="far fa-calendar-alt text-dark mr-3"></i> <%= I18n.l(@order.date, format: '%A %d de %B') %></p>
-    <p><i class="far fa-clock text-dark mr-3"></i>De <%= @order.from.strftime('%H:%M') %> a <%= @order.to.strftime('%H:%M') %></p>
+    <p class="text-dark"><i class="far fa-calendar-alt text-dark mr-3"></i> <%= I18n.l(@order.date, format: '%A %d de %B') %></p>
+    <p class="text-dark"><i class="far fa-clock text-dark mr-3"></i>De <%= @order.from.strftime('%H:%M') %> a <%= @order.to.strftime('%H:%M') %></p>
     <hr>
     <div class="d-flex justify-content-between align-items-center pt-4">
       <div>
-        <p class="font-weight-bold text-muted">MÉTODO DE PAGO</p>
+        <p class="text-muted">MÉTODO DE PAGO</p>
         <div class="form-check">
           <% current_user.credit_cards.each do |cc| %>
             <input class="form-check-input" type="radio" name="cc-<%= cc.id %>" id="cc-<%= cc.id %>" value="<%= cc.id %>">
-            <label class="form-check-label" for="cc-<%= cc.id %>">
+            <label class="form-check-label text-dark" for="cc-<%= cc.id %>">
               <i class="fab fa-cc-visa"></i> <%= cc.number[-4..-1] %>
             </label>
           <% end %>
@@ -60,7 +60,7 @@
       <p class="text-dark font-weight-bold">Total</p>
       <h4 class="text-dark font-weight-bold">$ <%= @order.guests * @order.service.cost %></h4>
     </div>
-    <%= link_to '¡Comprar!', paid_order_path(@order), method: :patch, class: "btn btn-primary w-100" %>
+    <%= link_to '¡Comprar!', paid_order_path(@order), method: :patch, class: "btn btn-primary w-100 py-3 text-dark" %>
   </div>
 </div>
 

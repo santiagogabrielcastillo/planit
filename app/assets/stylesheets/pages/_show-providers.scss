@@ -6,6 +6,15 @@
     object-position: center;
   }
 
+  h1 {
+    font-size: 21px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
   i {
     color: $primary;
   }
@@ -24,8 +33,12 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(197, 187, 187);
-  padding: 7px;
+  padding: 20px 12px;
   margin-bottom: 10px;
+
+  h4 {
+    font-size: 16px;
+  }
 
   img {
     width: 25%;
@@ -35,6 +48,7 @@
 
   p {
     width: 100%;
+    font-size: 13px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -43,7 +57,9 @@
 }
 
 #provider-service-cost {
-  font-size: 35px
+  color: #222b36;
+  font-weight: bold;
+  font-size: 20px
 }
 
 .provider-link {
