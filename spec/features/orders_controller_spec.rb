@@ -39,6 +39,18 @@ RSpec.feature "OrdersControllers", type: :feature, js: true do
       click_button 'Comprar'
     end
 
+    # context 'when giving valid information' do
+    #   it 'redirects to the order summary page' do
+    #     find('label', text: 'Retiro en local').click
+    #     find('input.datepicker').click
+    #     fill_in 'order_from', with: '08:00'
+    #     fill_in 'order_to', with: '12.00'
+    #     click_on 'Continuar'
+
+    #     expect(page).to have_content('Resumen')
+    #   end
+    # end
+
     context 'when selecting home delivery and giving no address' do
       it 'displays an error message' do
         find('label', text: 'A domicilio').click
@@ -54,6 +66,29 @@ RSpec.feature "OrdersControllers", type: :feature, js: true do
         click_on 'Continuar'
 
         expect(page).to have_content("Date can't be blank")
+      end
+    end
+  end
+
+  describe 'Orders index' do
+    context 'when clicking on my purchases' do
+      it 'lists all the orders I have made' do
+        visit '/'
+        find('p', text: 'Mis compras').click
+
+        expect(page).to have_current_path(orders_path)
+      end
+    end
+  end
+
+  describe 'Paying an order' do
+    context 'when paying an order' do
+      it 'shows a success message' do
+        create(:order)
+        visit "/orders/#{Order.first.id}/confirm"
+        click_on '¡Comprar!'
+
+        expect(page).to have_content('¡Pedido realizado!')
       end
     end
   end
