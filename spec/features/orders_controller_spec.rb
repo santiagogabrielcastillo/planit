@@ -8,7 +8,7 @@ RSpec.feature "OrdersControllers", type: :feature, js: true do
     create(:service)
     login_as(user, scope: :user)
     visit root_path
-    find('img.category-img').click
+    find('img.category-img', match: :first).click
     find('h3', text: 'La Pasionaria Cocina').find(:xpath, '..').click
     find('h4', text: 'Brunch completo').click
   end
@@ -39,17 +39,18 @@ RSpec.feature "OrdersControllers", type: :feature, js: true do
       click_button 'Comprar'
     end
 
-    # context 'when giving valid information' do
-    #   it 'redirects to the order summary page' do
-    #     find('label', text: 'Retiro en local').click
-    #     find('input.datepicker').click
-    #     fill_in 'order_from', with: '08:00'
-    #     fill_in 'order_to', with: '12.00'
-    #     click_on 'Continuar'
+    context 'when giving valid information' do
+      it 'redirects to the order summary page' do
+        find('label', text: 'Retiro en local').click
+        find('input.input').click
+        find('span.today').click
+        fill_in 'order_from', with: '08:00'
+        fill_in 'order_to', with: '12.00'
+        click_on 'Continuar'
 
-    #     expect(page).to have_content('Resumen')
-    #   end
-    # end
+        expect(page).to have_content('Resumen')
+      end
+    end
 
     context 'when selecting home delivery and giving no address' do
       it 'displays an error message' do

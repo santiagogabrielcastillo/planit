@@ -11,7 +11,7 @@ RSpec.feature "CreditCardsControllers", type: :feature do
     click_on 'Ver perfil'
   end
 
-  describe 'New credit card proccess' do
+  describe 'New credit card process' do
     before(:each) do
       find('h5', text: 'Medios de pago guardados:').find('+a').click
     end
