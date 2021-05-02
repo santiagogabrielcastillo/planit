@@ -6,6 +6,7 @@ RSpec.feature "OrdersControllers", type: :feature, js: true do
   before(:each) do
     create(:provider_with_categories)
     create(:service)
+    create(:credit_card)
     login_as(user, scope: :user)
     visit root_path
     find('img.category-img', match: :first).click
@@ -85,8 +86,15 @@ RSpec.feature "OrdersControllers", type: :feature, js: true do
   describe 'Paying an order' do
     context 'when paying an order' do
       it 'shows a success message' do
-        create(:order)
-        visit "/orders/#{Order.first.id}/confirm"
+        click_button '+'
+        click_button 'Comprar'
+        find('label', text: 'Retiro en local').click
+        find('input.input').click
+        find('span.today').click
+        fill_in 'order_from', with: '08:00'
+        fill_in 'order_to', with: '12.00'
+        click_on 'Continuar'
+        find('input.form-check-input', match: :first).click
         click_on '¡Comprar!'
 
         expect(page).to have_content('¡Pedido realizado!')
