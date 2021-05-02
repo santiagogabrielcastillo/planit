@@ -7,9 +7,9 @@ RSpec.describe "CategoriesControllers", type: :request do
     create(:provider_with_categories)
   end
 
-  describe "GET /index" do
+  describe "GET / or /categories" do
     context 'when user not logged in' do
-      it 'is able to see index page' do
+      it 'is able to see home and index page' do
         get root_path
 
         expect(response).to have_http_status(:success)
@@ -17,7 +17,7 @@ RSpec.describe "CategoriesControllers", type: :request do
     end
   end
 
-  describe 'GET /show' do
+  describe 'GET /categories/:id' do
     context 'when user not logged in' do
       it 'is able to see the show page' do
         get category_path(Category.first)
