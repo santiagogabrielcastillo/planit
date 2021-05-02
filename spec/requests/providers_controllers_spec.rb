@@ -25,4 +25,24 @@ RSpec.describe "ProvidersControllers", type: :request do
       end
     end
   end
+
+  describe 'GET /providers/new' do
+    context 'if user is not an admin' do
+      it 'shows an error message' do
+        login_as(user, scope: :user)
+        get new_provider_path
+
+        expect(response.body).to include('No tenés permitido crear proveedores!')
+      end
+    end
+
+    context 'if user is an admin' do
+      it 'is able to create a new provider' do
+        login_as(create(:user, admin: true), scope: :user)
+        get new_provider_path
+
+        expect(response.body).to include('Crear nuevo proveedor')
+      end
+    end
+  end
 end
