@@ -25,9 +25,4 @@ FactoryBot.define do
       end
     end
   end
-  # def provider_with_categories(categories_count: 5)
-  #   FactoryBot.create(:provider) do |provider|
-  #     FactoryBot.create_list(:category, categories_count, providers: [provider])
-  #   end
-  # end
 end

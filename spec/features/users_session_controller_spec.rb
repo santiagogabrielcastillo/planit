@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "UsersSessionControllers", type: :feature, js: true do
+RSpec.feature 'users session', type: :feature, js: true do
   let!(:user) { create(:user) }
 
   before(:each) do
@@ -26,7 +26,7 @@ RSpec.feature "UsersSessionControllers", type: :feature, js: true do
         fill_in 'Contraseña', with: 'contraseña'
         click_button 'Registrarme'
 
-        expect(page).to have_content("Invalid Email or password")
+        expect(page).to have_content('Invalid Email or password')
         expect(page).to have_current_path(new_user_session_path)
       end
     end
@@ -37,9 +37,9 @@ RSpec.feature "UsersSessionControllers", type: :feature, js: true do
       it 'creates a new user and redirect to categories index' do
         visit 'users/sign_in'
         click_link 'No tengo cuenta'
-        fill_in 'Nombre', with: "Nombre de ejemplo"
-        fill_in 'Email', with: "email@email.com"
-        fill_in 'Contraseña', with: "contraseña"
+        fill_in 'Nombre', with: 'Nombre de ejemplo'
+        fill_in 'Email', with: 'email@email.com'
+        fill_in 'Contraseña', with: 'contraseña'
         click_button 'Registrarme'
 
         expect(page).to have_current_path(root_path)

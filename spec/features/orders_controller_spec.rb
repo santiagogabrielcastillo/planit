@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "OrdersControllers", type: :feature, js: true do
+RSpec.feature 'orders', type: :feature, js: true do
   let!(:user) { create(:user) }
 
   before(:each) do

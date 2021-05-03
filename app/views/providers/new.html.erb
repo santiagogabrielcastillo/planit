@@ -1,4 +1,4 @@
-<% if current_user.admin == true %>
+<% if current_user.admin %>
   <div class="container-fluid container-padding">
     <h3 class="py-4">Crear nuevo proveedor</h3>
     <%= simple_form_for @provider do |f| %>

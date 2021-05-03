@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "CreditCardsControllers", type: :feature do
+RSpec.feature 'credit_cards', type: :feature do
   let!(:user) { create(:user) }
 
   before(:each) do
@@ -15,6 +15,7 @@ RSpec.feature "CreditCardsControllers", type: :feature do
     before(:each) do
       find('h5', text: 'Medios de pago guardados:').find('+a').click
     end
+
     context 'when giving valid information' do
       it 'creates a new credit card and redirect to the user information page' do
         fill_in 'Número de tarjeta', with: '2525-1010-8585-9999'

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "UserControllers", type: :feature, js: true do
+RSpec.feature 'users', type: :feature, js: true do
   let!(:user) { create(:user) }
 
   before(:each) do
