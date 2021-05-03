@@ -45,4 +45,25 @@ RSpec.describe "ProvidersControllers", type: :request do
       end
     end
   end
+
+  describe 'POST /providers' do
+    context 'when user is admin and gives valid information' do
+      it 'creates a new provider' do
+        login_as(create(:user, admin: true), scope: :user)
+        get new_provider_path
+        provider_params = {
+          provider: {
+            name: Provider.last.name,
+            address: Provider.last.address,
+            description: Provider.last.description,
+            category_ids: Category.last.id,
+            schedule: Provider.last.schedule
+          }
+        }
+        post providers_path, params: provider_params
+
+        expect(response).to redirect_to(provider_path(Provider.last))
+      end
+    end
+  end
 end

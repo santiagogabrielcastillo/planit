@@ -52,12 +52,14 @@ RSpec.describe "ServicesControllers", type: :request do
       it 'creates a new service for the provider' do
         login_as(create(:user, admin: true), scope: :user)
         get new_provider_service_path(Provider.last)
-        service_params = { service: {
-          name: Service.last.name,
-          description: Service.last.description,
-          cost: Service.last.cost,
-          provider_id: Provider.last.id
-        }}
+        service_params = {
+          service: {
+            name: Service.last.name,
+            description: Service.last.description,
+            cost: Service.last.cost,
+            provider_id: Provider.last.id
+          }
+        }
         post provider_services_path, params: service_params
         expect(response).to redirect_to provider_service_path(Provider.last, Service.last)
       end
