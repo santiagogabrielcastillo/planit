@@ -1,6 +1,6 @@
 <div class="container-fluid container-padding">
   <div class="bg-white px-3 py-3">
-    <% if current_user.admin = true %>
+    <% if current_user.admin %>
       <h1>Proveedor: <%= @provider.name %></h1>
       <h3>Editar servicio</h3>
       <%= simple_form_for [@provider, @service] do |f| %>
